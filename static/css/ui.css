@@ -488,7 +488,7 @@ p:last-child {
 .section-footer .title {
   font-weight: 600;
   margin-bottom: 16px;
-  color: #212529;
+  color: #049e0c;
 }
 
 .footer-bottom {
@@ -1324,7 +1324,7 @@ a[class*=card]:hover .title {
   left: 18px;
 }
 .js-check.active {
-  border-color: #3167eb;
+  border-color: #11a703;
 }
 .js-check:hover:not(.active) {
   border-color: #ccc;
