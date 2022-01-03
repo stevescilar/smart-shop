@@ -5,7 +5,14 @@
     <div class="container">
     
     <!-- ============================ COMPONENT 1 ================================= -->
-    
+    {% if not cart_items %}
+        <div class="text-center">
+            <img src="{% static 'images/empty.svg' %}" alt="" width="350"> 
+            <h2>Your Cart is Empty..</h2>
+            <a href="{% url 'store' %}" class="btn btn-success">Continue Shopping</a>
+        </div>
+
+    {% else %}
     <div class="row">
         <aside class="col-lg-9">
     <div class="card">
@@ -92,7 +99,7 @@
     
     </div> <!-- row.// -->
     <!-- ============================ COMPONENT 1 END .// ================================= -->
-    
+    {% endif %}
     </div> <!-- container .//  -->
     </section>
     <!-- ========================= SECTION CONTENT END// ========================= -->
