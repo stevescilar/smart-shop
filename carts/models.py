@@ -1,5 +1,4 @@
 from django.db import models
-from carts.views import cart
 from store.models import Product
 
 
