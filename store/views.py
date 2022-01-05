@@ -1,7 +1,9 @@
 # from django.http.response import HttpResponse
+from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .models import Product
+from .models import Product 
+from django.db.models import Q
 from category.models import Category
 from carts.models import CartItem
 from carts.views import _cart_id
@@ -48,3 +50,17 @@ def product_detail(request, category_slug, product_slug):
         'in_cart' : in_cart
     }
     return render(request,'store/product_detail.html',context)
+
+
+def search(request):
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
+        if keyword:
+            products = Product.objects.order_by('-created_date').filter(
+                # conditional OR Using Q
+                Q(description__icontains=keyword) | Q(product_name__icontains=keyword)) 
+    context = {
+        'products':products,
+    }
+
+    return render(request,'store/store.html',context)
