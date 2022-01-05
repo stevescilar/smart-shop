@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <!-- ========================= SECTION PAGETOP ========================= -->
 <section class="section-pagetop bg">
     <div class="container">
+        {% if 'search' in request.path %}
+            <h2 class="title-page">Search Results</h2>
+        {% else %}
         <h2 class="title-page">Our Store</h2>
+        {% endif %}
         
     </div> <!-- container //  -->
     </section>
@@ -117,12 +121,18 @@
     
     <header class="border-bottom mb-4 pb-3">
             <div class="form-inline">
+                {% if product_count > 0 %}
                 <span class="mr-md-auto"> <b>{{ product_count }}</b> products found </span>
+                {% else %}
+                <span class="mr-md-auto"> <b>No</b> product found </span>
+                {% endif %}
                 
             </div>
+            
     </header><!-- sect-heading -->
     
     <div class="row">
+    {% if products %}
     {% for product in products %}
         <div class="col-md-4">
             <figure class="card card-product-grid">
@@ -144,7 +154,12 @@
         </div> <!-- col.// -->
     {% endfor %}
     </div> <!-- row end.// -->
-    
+    {% else %}
+    <div class="container-fluid">
+        <h3 class="text-center">Product Not Found</h3>
+        <img src="{% static './images/404.svg' %}" alt="notfound">
+    </div>
+    {% endif %}
     
     <nav class="mt-4" aria-label="Page navigation sample">
         {% if products.has_other_pages %}
