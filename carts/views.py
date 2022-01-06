@@ -13,11 +13,11 @@ def _cart_id(request):
 #add to cart function
 def add_cart(request, product_id):
     #add variations to items
-    color = request.GET['color']
-    size = request.GET['size']
-    return HttpResponse(color + ' ' + size)
-    exit()
+    if request.method == 'POST':
+        color = request.POST['color']
+        size = request.POST['size']
     
+
     product = Product.objects.get(id=product_id)
     try: 
         cart =  Cart.objects.get(cart_id=_cart_id(request))#get  the cart using cart_id in session
