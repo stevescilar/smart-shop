@@ -1,2 +1,3 @@
-# smart-shop
-smart shop just that
+#smart-E-Shop 
+#Developed in Django 
+its an advanced electronic shop
