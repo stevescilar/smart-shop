@@ -1,3 +1,4 @@
+*** Author : Stephen MUAMBI****
 #smart-E-Shop 
 #Developed in Django 
 its an advanced electronic shop
