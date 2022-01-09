@@ -6,7 +6,7 @@ class RegistrationForm(forms.ModelForm):
         'placeholder':'Enter Password'
     }))
     confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={
-        'placeholder':'Re-Enter Password'
+        'placeholder':'Confirm Password'
     }))
     class Meta:
         model =Account
